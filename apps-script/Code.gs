@@ -11,7 +11,7 @@
 const SHEET_NAME = 'Enquiries'
 const NOTIFY_TO = 'khushrajsingh13s@gmail.com'
 const ALLOWED_SERVICES = [
-  'General Enquiry',
+  'General Inquiry',
   'Business Formation & Registration',
   'Bookkeeping & Payroll Services',
   'Business Administration & Support',
@@ -56,7 +56,7 @@ function doPost(e) {
       MailApp.sendEmail({
         to: NOTIFY_TO,
         replyTo: entry.email,
-        subject: `New enquiry — ${entry.service} — ${entry.name}`,
+        subject: `New inquiry — ${entry.service} — ${entry.name}`,
         body: [`Name: ${entry.name}`, `Email: ${entry.email}`, `Service: ${entry.service}`, '', entry.message].join('\n'),
       })
     } catch (mailError) {

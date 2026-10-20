@@ -15,7 +15,7 @@ These values are compiled into the public site. Never put secrets or API keys in
 
 ## Inquiry form
 
-The form (`src/components/InquiryForm.jsx`) asks for name, email, service and message. The service list comes from `src/data/services.js` plus “General Enquiry”.
+The form (`src/components/InquiryForm.jsx`) asks for name, email, service and message. The service list comes from `src/data/services.js` plus “General Inquiry”.
 
 Submissions go to a Google Apps Script web app that appends a row to the **Customer Enquiries** spreadsheet (tab **Enquiries**: Timestamp, Name, Email, Service, Message) and emails a notification to `khushrajsingh13s@gmail.com`. The script generates the timestamp. The reference script is in `apps-script/Code.gs`.
 

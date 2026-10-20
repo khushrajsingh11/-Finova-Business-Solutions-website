@@ -16,13 +16,13 @@ export default function ServicesPage() {
               <span className="service-number">{service.mark}</span>
               <div className="service-overview-title"><h2>{service.name}</h2><span className="service-overview-tag">{service.tag}</span></div>
               <p>{service.description}</p>
-              <div className="service-overview-actions"><a href={inquiryPath(service)}>Enquire <span aria-hidden="true">↗</span></a></div>
+              <div className="service-overview-actions"><a href={inquiryPath(service)}>Inquire <span aria-hidden="true">↗</span></a></div>
             </article>
           ))}
         </div>
       </section>
       <section className="services-bottom-cta">
-        <div className="section-wrap services-bottom-inner"><SectionHeading eyebrow="A GOOD PLACE TO BEGIN" title={<>Let’s find the right support for <em>you.</em></>} description="Tell us what you need help with, and we’ll start with the priorities that matter to your business." /><a className="button button--ink" href="/inquiry">Make an enquiry <span aria-hidden="true">↗</span></a></div>
+        <div className="section-wrap services-bottom-inner"><SectionHeading eyebrow="A GOOD PLACE TO BEGIN" title={<>Let’s find the right support for <em>you.</em></>} description="Tell us what you need help with, and we’ll start with the priorities that matter to your business." /><a className="button button--ink" href="/inquiry">Make an inquiry <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
   )

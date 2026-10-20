@@ -5,7 +5,7 @@ import { inquiryRecipient } from '../lib/inquirySubmission'
 
 const nextSteps = [
   'Send a few details about your business and the support you need.',
-  'We review your enquiry and the service you selected.',
+  'We review your inquiry and the service you selected.',
   'We reply by email to talk through the next step.',
 ]
 
@@ -14,7 +14,7 @@ export default function InquiryPage() {
     <main id="main" className="inner-page inquiry-page">
       <section className="contact-page section-wrap" aria-labelledby="page-title">
         <div className="contact-intro">
-          <SectionHeading number="01" eyebrow="CONTACT FINOVA" title={<>Let’s talk about your <em>business.</em></>} description="Tell us what you’re working on and the support you’re looking for. Send an enquiry using the form and we’ll reply by email." id="page-title" as="h1" />
+          <SectionHeading number="01" eyebrow="CONTACT FINOVA" title={<>Let’s talk about your <em>business.</em></>} description="Tell us what you’re working on and the support you’re looking for. Send an inquiry using the form and we’ll reply by email." id="page-title" as="h1" />
         </div>
         <InquiryForm />
         <aside className="contact-details" aria-label="Contact details">

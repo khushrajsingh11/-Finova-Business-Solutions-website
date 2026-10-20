@@ -46,7 +46,7 @@ export const services = [
       'Sales tax filing support',
     ],
     benefit: 'Practical assistance across bookkeeping, payroll, and related financial administration, shaped around your business needs.',
-    cta: 'Enquire about bookkeeping and payroll',
+    cta: 'Inquire about bookkeeping and payroll',
     inquiry: { questions: [], validate: null, submissionAdapter: null },
   },
   {
@@ -153,7 +153,7 @@ export const services = [
 
 export const generalEnquiry = {
   query: 'general-enquiry',
-  name: 'General Enquiry',
+  name: 'General Inquiry',
   inquiry: { questions: [], validate: null, submissionAdapter: null },
 }
 

@@ -125,14 +125,14 @@ export default function InquiryForm() {
     return (
       <div className="inquiry-form-panel inquiry-success">
         <span className="inquiry-success-mark" aria-hidden="true">✓</span>
-        <h2 className="form-heading" ref={successHeadingRef} tabIndex={-1}>Thank you, {sent.name.split(/\s+/)[0]}. Your enquiry has been sent.</h2>
-        <p className="form-intro">We’ve received your enquiry and will reply by email to <strong>{sent.email}</strong>.</p>
+        <h2 className="form-heading" ref={successHeadingRef} tabIndex={-1}>Thank you, {sent.name.split(/\s+/)[0]}. Your inquiry has been sent.</h2>
+        <p className="form-intro">We’ve received your inquiry and will reply by email to <strong>{sent.email}</strong>.</p>
         <dl className="inquiry-success-summary">
           <div><dt>Service</dt><dd>{sent.service}</dd></div>
           <div><dt>Reply to</dt><dd>{sent.email}</dd></div>
         </dl>
         <div className="inquiry-success-actions">
-          <button className="button button--ink" type="button" onClick={sendAnother}>Send another enquiry <span aria-hidden="true">↗</span></button>
+          <button className="button button--ink" type="button" onClick={sendAnother}>Send another inquiry <span aria-hidden="true">↗</span></button>
           <a className="inquiry-success-home" href="/">Back to home</a>
         </div>
       </div>
@@ -141,7 +141,7 @@ export default function InquiryForm() {
 
   return (
     <div className="inquiry-form-panel">
-      <h2 className="form-heading" id="inquiry-form-title">Send an enquiry</h2>
+      <h2 className="form-heading" id="inquiry-form-title">Send an inquiry</h2>
       <p className="form-intro">All fields are required.</p>
       <form ref={formRef} onSubmit={submit} noValidate aria-labelledby="inquiry-form-title" aria-busy={submitting}>
         <div className="form-trap" aria-hidden="true">
