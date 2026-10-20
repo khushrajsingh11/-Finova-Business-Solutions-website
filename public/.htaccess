@@ -1,0 +1,40 @@
+# Apache configuration for the static build in dist/.
+# Every route has a prerendered HTML file (e.g. /about -> about.html, /services/x -> services/x.html)
+# so titles, canonical URLs and social tags are present without JavaScript.
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_dir.c>
+  # /services is a page, not a directory listing; do not add a trailing slash to it.
+  DirectorySlash Off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Earlier service URLs now live under consolidated pages.
+  RewriteRule ^services/(business-formation|licensing-assistance)/?$ /services/business-formation-registration [R=301,L]
+  RewriteRule ^services/(bookkeeping|payroll)/?$ /services/bookkeeping-payroll [R=301,L]
+  RewriteRule ^services/administrative-support/?$ /services/business-administration-support [R=301,L]
+  RewriteRule ^services/marketing-coordination/?$ /services/marketing-business-collaborations [R=301,L]
+  RewriteRule ^services/operational-consulting/?$ /services/business-consulting-operational-support [R=301,L]
+
+  # One URL per page: drop trailing slashes and the .html extension.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/([^?\s]+)\.html[\s?]
+  RewriteCond %1 !^(index|404)$
+  RewriteRule ^ /%1 [R=301,L]
+
+  # Serve the prerendered file for each route.
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Vite fingerprints everything in /assets, so it can be cached for a year.
+  <FilesMatch "^[^/]+-[A-Za-z0-9_-]{8}\.(js|css|webp|png|jpg|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

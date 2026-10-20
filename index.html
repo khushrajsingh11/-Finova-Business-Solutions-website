@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#192b2a" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- seo:start -->
+    <title>Finova Business Solutions | Your Business. Our Expertise. Your Growth.</title>
+    <!-- seo:end -->
+    <script>
+      if (location.pathname.replace(/\/+$/, '') === '') document.documentElement.dataset.homepage = 'true'
+    </script>
+    <style>
+      #site-loader { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; background: #f7f6f0; transform: translateY(0); transition: transform 720ms cubic-bezier(.76,0,.24,1); }
+      html:not([data-homepage]) #site-loader { display: none; }
+      #site-loader.is-hidden { transform: translateY(-100%); pointer-events: none; }
+      #site-loader img { display: block; width: min(220px, 55vw); height: auto; mix-blend-mode: multiply; }
+      #site-loader::after { position: absolute; top: calc(50% + 105px); left: 50%; width: 88px; height: 2px; content: ''; background: linear-gradient(90deg, #b18a61 35%, #e8ddc8 35%); transform: translateX(-50%); transform-origin: left; animation: loader-progress 1.2s ease-in-out infinite; }
+      @keyframes loader-progress { 0% { transform: translateX(-94px) scaleX(.35); opacity: .55; } 55% { transform: translateX(-44px) scaleX(1); opacity: 1; } 100% { transform: translateX(6px) scaleX(.35); opacity: .55; } }
+      @media (prefers-reduced-motion: reduce) { #site-loader, #site-loader::after { transition: none; animation: none; } }
+    </style>
+  </head>
+  <body>
+    <div id="site-loader" role="status" aria-label="Loading Finova Business Solutions">
+      <img src="/src/assets/finova-logo.webp" alt="Finova Business Solutions" width="480" height="320" />
+    </div>
+    <div id="root"></div>
+    <script>
+      (() => {
+        const loader = document.getElementById('site-loader')
+        if (document.documentElement.dataset.homepage !== 'true') {
+          loader.remove()
+          return
+        }
+        const loaderStartedAt = Date.now()
+        const dismissLoader = () => {
+          const holdTime = Math.max(0, 500 - (Date.now() - loaderStartedAt))
+          window.setTimeout(() => {
+            loader.classList.add('is-hidden')
+            window.setTimeout(() => loader.remove(), 750)
+          }, holdTime)
+        }
+        if (document.readyState === 'complete') dismissLoader()
+        else window.addEventListener('load', dismissLoader, { once: true })
+      })()
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
