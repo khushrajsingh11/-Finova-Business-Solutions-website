@@ -75,8 +75,7 @@ export default function SiteHeader({ pathname }) {
         <div className="header-inner">
           <Brand />
           <button className="menu-toggle" ref={menuButtonRef} type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => { setMenuOpen(!menuOpen); setServicesOpen(false) }}>
-            <span className="menu-toggle-label">{menuOpen ? 'Close' : 'Menu'}</span>
-            <span className={`menu-icon${menuOpen ? ' is-open' : ''}`} aria-hidden="true"><i /><i /></span>
+            <span className={`menu-icon${menuOpen ? ' is-open' : ''}`} aria-hidden="true"><i /><i /><i /></span>
           </button>
           <nav className={`primary-nav${menuOpen ? ' is-open' : ''}`} id="primary-navigation" aria-label="Main navigation">
             <a href="/" aria-current={active('/') ? 'page' : undefined} onClick={closeMenu}>Home</a>
@@ -88,7 +87,12 @@ export default function SiteHeader({ pathname }) {
               onPointerLeave={(event) => { if (event.pointerType === 'mouse') { openedByHoverRef.current = false; setServicesOpen(false) } }}
             >
               <div className="nav-services-head">
-                <a href="/services" aria-current={active('/services') ? 'page' : undefined} onClick={closeMenu}>Services</a>
+                <a href="/services" aria-current={active('/services') ? 'page' : undefined} onClick={(event) => {
+                  if (window.matchMedia('(max-width: 760px)').matches) {
+                    event.preventDefault()
+                    setServicesOpen(!servicesOpen)
+                  } else closeMenu()
+                }}>Services</a>
                 <button type="button" aria-label={servicesOpen ? 'Close services menu' : 'Open services menu'} aria-expanded={servicesOpen} aria-controls="services-submenu" onClick={() => { if (openedByHoverRef.current) openedByHoverRef.current = false; else setServicesOpen(!servicesOpen) }}><span className="nav-chevron" aria-hidden="true" /></button>
               </div>
               <div className="services-submenu" id="services-submenu" role="group" aria-label="Individual services" aria-hidden={!servicesOpen}>

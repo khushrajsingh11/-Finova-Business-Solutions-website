@@ -899,6 +899,51 @@ h1 em, h2 em { color: #697e6d; font-weight: 400; }
   .home-page .services-heading-footer { align-items: flex-start; flex-direction: column; gap: 14px; margin-top: 16px; }
 }
 
+/* Mobile reference header: centered brand with a three-line menu control. */
+@media (max-width: 760px) {
+  .home-page .hero-copy > .eyebrow { display: none; }
+  .site-header.is-compact { padding-top: 0; }
+  .site-header .header-inner,
+  .site-header.is-compact .header-inner {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    min-height: 78px;
+    justify-content: flex-start;
+    gap: 0;
+    padding-inline: 26px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--ivory);
+    box-shadow: none;
+  }
+  .site-header .brand,
+  .site-header.is-compact .brand {
+    position: absolute;
+    left: 50%;
+    width: 92px;
+    height: 64px;
+    transform: translateX(-50%);
+  }
+  .site-header .menu-toggle {
+    position: relative;
+    z-index: 1;
+    width: 36px;
+    height: 44px;
+    justify-content: flex-start;
+    padding: 10px 0;
+  }
+  .site-header .menu-icon { width: 30px; gap: 6px; }
+  .site-header .menu-icon i { width: 30px; height: 2px; }
+  .site-header .menu-icon.is-open i:first-child { transform: translateY(8px) rotate(45deg); }
+  .site-header .menu-icon.is-open i:nth-child(2) { opacity: 0; }
+  .site-header .menu-icon.is-open i:last-child { transform: translateY(-8px) rotate(-45deg); }
+  .site-header .primary-nav { top: 78px; }
+  .site-header.is-compact .primary-nav { top: 78px; }
+  .site-header .primary-nav .nav-cta { align-self: center; }
+}
+
 /* Give the shared header menus enough room to read and open cleanly. */
 .primary-nav { font-size: 15px; }
 .services-submenu {
